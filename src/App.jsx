@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const openWA = () => { window.open("/chat", "_blank", "noopener,noreferrer"); };
+const openWA = () => { window.open("https://wa.me/message/EIBOF4F7XM7BJ1", "_blank", "noopener,noreferrer"); };
 
 const FLOWS = {
   clinic: { name: "City Care Clinic", icon: "🏥", steps: [
@@ -189,7 +189,6 @@ export default function LandingPage() {
 
       <section className="hero-flex" style={{ maxWidth: 1140, margin: "0 auto", padding: "60px 20px 46px", display: "flex", alignItems: "center", gap: 46, flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 450px", minWidth: 270 }}>
-          <div style={{ display: "inline-block", background: "#e8f5e9", color: "#2e7d32", padding: "5px 12px", borderRadius: 20, fontSize: 12, fontWeight: 600, marginBottom: 16 }}>🚀 For Mumbai & Navi Mumbai businesses</div>
           <h1 className="hero-title" style={{ fontFamily: "'Playfair Display',serif", fontSize: 42, lineHeight: 1.15, fontWeight: 700, color: "#0d1117", marginBottom: 16 }}>Turn WhatsApp into your <span style={{ color: "#075E54" }}>24/7 receptionist</span></h1>
           <p style={{ fontSize: 15.5, lineHeight: 1.65, color: "#4a4a4a", marginBottom: 26, maxWidth: 480 }}>Automate appointments, follow-ups, payments & reviews for your clinic, salon, or coaching centre. Starting at just ₹2,499/month.</p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
