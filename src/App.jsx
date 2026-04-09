@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const openWA = (msg) => { window.open(`/chat?m=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer"); };
+const openWA = () => { window.open("/chat", "_blank", "noopener,noreferrer"); };
 
 const FLOWS = {
   clinic: { name: "City Care Clinic", icon: "🏥", steps: [
@@ -175,7 +175,7 @@ export default function LandingPage() {
           </div>
           <div className="nav-links" style={{ display: "flex", gap: 22, alignItems: "center", fontSize: 13.5 }}>
             {NL.map(l => <a key={l} href={`#${l.toLowerCase()}`} style={{ color: "#555", textDecoration: "none", fontWeight: 500 }}>{l}</a>)}
-            <span onClick={() => openWA("Hi, I want to automate my business")} style={{ background: "#25D366", color: "#fff", padding: "8px 16px", borderRadius: 8, fontWeight: 600, fontSize: 12.5, textDecoration: "none", cursor: "pointer" }}>💬 Get Started</span>
+            <span onClick={() => openWA()} style={{ background: "#25D366", color: "#fff", padding: "8px 16px", borderRadius: 8, fontWeight: 600, fontSize: 12.5, textDecoration: "none", cursor: "pointer" }}>💬 Get Started</span>
           </div>
           <div className="burger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: "none", flexDirection: "column", gap: 5, cursor: "pointer", padding: 8 }}>
             <div style={{ width: 22, height: 2, background: "#333", borderRadius: 2, transition: "0.3s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }}/><div style={{ width: 22, height: 2, background: "#333", opacity: menuOpen ? 0 : 1, transition: "0.3s" }}/><div style={{ width: 22, height: 2, background: "#333", borderRadius: 2, transition: "0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }}/>
@@ -183,7 +183,7 @@ export default function LandingPage() {
         </div>
         {menuOpen && <div className="mobile-menu-show" style={{ display: "flex", flexDirection: "column", paddingBottom: 10, borderTop: "1px solid #eee" }}>
           {NL.map(l => <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setMenuOpen(false)} style={{ padding: "11px 16px", color: "#333", textDecoration: "none", fontWeight: 500, fontSize: 14, borderBottom: "1px solid #f0f0f0" }}>{l}</a>)}
-          <span onClick={() => { setMenuOpen(false); openWA("Hi, I want to automate my business"); }} style={{ margin: "8px 16px", background: "#25D366", color: "#fff", padding: "10px 0", borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: "none", textAlign: "center", cursor: "pointer", display: "block" }}>💬 Get Started Free</span>
+          <span onClick={() => { setMenuOpen(false); openWA(); }} style={{ margin: "8px 16px", background: "#25D366", color: "#fff", padding: "10px 0", borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: "none", textAlign: "center", cursor: "pointer", display: "block" }}>💬 Get Started Free</span>
         </div>}
       </nav>
 
@@ -193,7 +193,7 @@ export default function LandingPage() {
           <h1 className="hero-title" style={{ fontFamily: "'Playfair Display',serif", fontSize: 42, lineHeight: 1.15, fontWeight: 700, color: "#0d1117", marginBottom: 16 }}>Turn WhatsApp into your <span style={{ color: "#075E54" }}>24/7 receptionist</span></h1>
           <p style={{ fontSize: 15.5, lineHeight: 1.65, color: "#4a4a4a", marginBottom: 26, maxWidth: 480 }}>Automate appointments, follow-ups, payments & reviews for your clinic, salon, or coaching centre. Starting at just ₹2,499/month.</p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <span onClick={() => openWA("Hi, I want a free demo")} style={{ background: "#075E54", color: "#fff", padding: "12px 24px", borderRadius: 10, fontWeight: 600, fontSize: 14.5, textDecoration: "none", boxShadow: "0 4px 14px rgba(7,94,84,0.3)", cursor: "pointer" }}>Get Free Demo →</span>
+            <span onClick={() => openWA()} style={{ background: "#075E54", color: "#fff", padding: "12px 24px", borderRadius: 10, fontWeight: 600, fontSize: 14.5, textDecoration: "none", boxShadow: "0 4px 14px rgba(7,94,84,0.3)", cursor: "pointer" }}>Get Free Demo →</span>
             <a href="#demo" style={{ background: "#fff", color: "#075E54", padding: "12px 24px", borderRadius: 10, fontWeight: 600, fontSize: 14.5, textDecoration: "none", border: "2px solid #075E54" }}>See it Live ↓</a>
           </div>
           <div style={{ display: "flex", gap: 26, marginTop: 30 }}>
@@ -263,7 +263,7 @@ export default function LandingPage() {
                 <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 7 }}>
                   {plan.features.map(f => <div key={f} style={{ display: "flex", gap: 6, fontSize: 12.5, color: "#444", lineHeight: 1.4 }}><span style={{ color: "#25D366", fontWeight: 700, flexShrink: 0 }}>✓</span>{f}</div>)}
                 </div>
-                <span onClick={() => openWA(`Hi, I'm interested in ${plan.name} plan`)} style={{ display: "block", textAlign: "center", marginTop: 18, padding: "11px 0", borderRadius: 9, fontWeight: 600, fontSize: 13.5, textDecoration: "none", background: plan.cta ? "#075E54" : "transparent", color: plan.cta ? "#fff" : "#075E54", border: plan.cta ? "none" : "2px solid #075E54", cursor: "pointer" }}>Start Free Trial →</span>
+                <span onClick={() => openWA()} style={{ display: "block", textAlign: "center", marginTop: 18, padding: "11px 0", borderRadius: 9, fontWeight: 600, fontSize: 13.5, textDecoration: "none", background: plan.cta ? "#075E54" : "transparent", color: plan.cta ? "#fff" : "#075E54", border: plan.cta ? "none" : "2px solid #075E54", cursor: "pointer" }}>Start Free Trial →</span>
               </div>
             ))}
           </div>
@@ -293,7 +293,7 @@ export default function LandingPage() {
       <section style={{ background: "#075E54", padding: "46px 20px", textAlign: "center" }}>
         <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: 28, fontWeight: 700, color: "#fff", marginBottom: 10 }}>Ready to automate your business?</h2>
         <p style={{ color: "#b5dbb5", fontSize: 14, marginBottom: 22 }}>First month FREE · Setup in 3 days · Cancel anytime</p>
-        <span onClick={() => openWA("Hi, I want to automate my business")} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "13px 30px", borderRadius: 11, fontWeight: 700, fontSize: 15.5, textDecoration: "none", boxShadow: "0 4px 20px rgba(37,211,102,0.4)", cursor: "pointer" }}>💬 Chat with us on WhatsApp</span>
+        <span onClick={() => openWA()} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "13px 30px", borderRadius: 11, fontWeight: 700, fontSize: 15.5, textDecoration: "none", boxShadow: "0 4px 20px rgba(37,211,102,0.4)", cursor: "pointer" }}>💬 Chat with us on WhatsApp</span>
       </section>
 
       <footer style={{ background: "#0d1117", color: "#888", padding: "32px 20px", textAlign: "center" }}>

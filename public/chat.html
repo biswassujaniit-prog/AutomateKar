@@ -75,12 +75,9 @@
     </p>
   </div>
   <script>
-    var p = [57,55,51,53,53,55,55,49,56,50];
-    var n = '91' + p.map(function(c){return String.fromCharCode(c)}).join('');
-    var params = new URLSearchParams(window.location.search);
-    var msg = params.get('m') || 'Hi, I want to automate my business';
+    var dest = 'https://wa.me/message/EIBOF4F7XM7BJ1';
     function go() {
-      window.location.href = 'https://wa.me/' + n + '?text=' + encodeURIComponent(msg);
+      window.location.href = dest;
     }
     setTimeout(function() {
       document.getElementById('fallback').style.display = 'block';
