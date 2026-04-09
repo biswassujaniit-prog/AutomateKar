@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat with AutomateKar on WhatsApp</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, #075E54 0%, #128C7E 50%, #25D366 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .logo {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: linear-gradient(135deg, #075E54, #25D366);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 22px;
+      margin: 0 auto 16px;
+    }
+    h1 { font-size: 22px; color: #0d1117; margin-bottom: 6px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 28px; }
+    .wa-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 16px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .status { color: #075E54; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+    .dots::after { content: ''; animation: dots 1.5s steps(3, end) infinite; }
+    @keyframes dots { 0% { content: ''; } 33% { content: '.'; } 66% { content: '..'; } 100% { content: '...'; } }
+    .hint { color: #999; font-size: 12px; margin-top: 20px; }
+    .hint a { color: #075E54; text-decoration: underline; cursor: pointer; }
+    .spinner {
+      width: 32px; height: 32px; border: 3px solid #e0e0e0;
+      border-top: 3px solid #25D366; border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">A</div>
+    <h1>AutomateKar</h1>
+    <p class="subtitle">WhatsApp Automation for Local Businesses</p>
+    <svg class="wa-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#25D366"/>
+      <path d="M34.6 13.3C32.8 11.5 30.5 10.2 28 9.6C25.5 9 22.9 9.1 20.5 9.9C18.1 10.7 16 12.1 14.4 14C12.8 15.9 11.8 18.2 11.5 20.7C11.2 23.2 11.6 25.7 12.7 28L11 37L20.2 35.3C22.2 36.3 24.4 36.7 26.6 36.5C28.8 36.3 30.9 35.5 32.6 34.2C34.3 32.9 35.7 31.2 36.4 29.1C37.2 27 37.3 24.8 36.8 22.7C36.3 20.5 35.2 18.5 33.6 16.9L34.6 13.3Z" fill="white"/>
+      <path d="M20.3 17.5C20.1 17.1 19.8 17 19.5 17C19.2 17 18.6 17.1 18.1 17.6C17.6 18.1 16.5 19.1 16.5 21.2C16.5 23.3 18.1 25.3 18.3 25.6C18.5 25.9 21.5 30.5 26.1 32.2C29.8 33.6 30.7 33.2 31.5 33.1C32.3 33 34 32.2 34.4 31.4C34.8 30.6 34.8 29.9 34.7 29.7C34.6 29.5 34.3 29.4 33.8 29.2C33.3 29 31.2 28 30.8 27.8C30.4 27.6 30.1 27.6 29.8 28C29.5 28.4 28.7 29.4 28.5 29.7C28.3 30 28 30 27.6 29.8C27.2 29.6 25.8 29.1 24.2 27.7C22.9 26.5 22.1 25.1 21.9 24.7C21.7 24.3 21.9 24 22.1 23.8C22.3 23.6 22.5 23.3 22.7 23.1C22.9 22.9 23 22.7 23.2 22.4C23.4 22.1 23.3 21.8 23.2 21.6C23.1 21.4 22.1 19.3 20.3 17.5Z" fill="#25D366"/>
+    </svg>
+    <div class="spinner"></div>
+    <p class="status">Opening AutomateKar on WhatsApp<span class="dots"></span></p>
+    <p class="hint" id="fallback" style="display:none;">
+      Didn't open? <a id="manual-link" onclick="go()">Click here to chat with AutomateKar</a>
+    </p>
+  </div>
+  <script>
+    var p = [57,55,51,53,53,55,55,49,56,50];
+    var n = '91' + p.map(function(c){return String.fromCharCode(c)}).join('');
+    var params = new URLSearchParams(window.location.search);
+    var msg = params.get('m') || 'Hi, I want to automate my business';
+    function go() {
+      window.location.href = 'https://wa.me/' + n + '?text=' + encodeURIComponent(msg);
+    }
+    setTimeout(function() {
+      document.getElementById('fallback').style.display = 'block';
+    }, 2500);
+    setTimeout(go, 1200);
+  </script>
+</body>
+</html>

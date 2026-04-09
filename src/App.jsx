@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const _k = [57,55,51,53,53,55,55,49,56,50];
-const _c = () => "91" + _k.map(c => String.fromCharCode(c)).join("");
-const openWA = (msg) => { window.open(`https://wa.me/${_c()}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer"); };
+const openWA = (msg) => { window.open(`/chat?m=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer"); };
 
 const FLOWS = {
   clinic: { name: "City Care Clinic", icon: "🏥", steps: [
