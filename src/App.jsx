@@ -304,11 +304,11 @@ export default function LandingPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
             {[
-              { name: "Dr. Priya Sharma", role: "City Care Clinic, Vashi", rating: 5, text: "AutomateKar transformed our clinic's booking system. No-shows dropped by 40% in the first month. The WhatsApp bot handles appointment scheduling perfectly.", time: "2 weeks ago" },
-              { name: "Rajesh Mehta", role: "Glow Studio Salon, Kharghar", rating: 5, text: "Our campaign automation is incredible. We sent Diwali offers to 2000+ customers and got a 95% open rate. Revenue up 30% this quarter!", time: "1 month ago" },
-              { name: "Sneha Iyer", role: "Excel Academy, Panvel", rating: 5, text: "Fee collection was our biggest headache. Now billing automation sends Razorpay links on WhatsApp and parents pay in one tap. Collections improved 60%.", time: "3 weeks ago" },
+              { name: "Dr. Priya Sharma", role: "City Care Clinic", rating: 5, text: "AutomateKar transformed our clinic's booking system. No-shows dropped by 40% in the first month. The WhatsApp bot handles appointment scheduling perfectly.", time: "2 weeks ago" },
+              { name: "Rajesh Mehta", role: "Glow Studio Salon", rating: 5, text: "Our campaign automation is incredible. We sent Diwali offers to 2000+ customers and got a 95% open rate. Revenue up 30% this quarter!", time: "1 month ago" },
+              { name: "Sneha Iyer", role: "Excel Academy", rating: 5, text: "Fee collection was our biggest headache. Now billing automation sends Razorpay links on WhatsApp and parents pay in one tap. Collections improved 60%.", time: "3 weeks ago" },
               { name: "Amit Patel", role: "Dental Plus Clinic", rating: 5, text: "Best booking automation service we've used. Patients book directly on WhatsApp without calling. The AI FAQ bot answers 80% of queries automatically.", time: "1 month ago" },
-              { name: "Kavita Desai", role: "FitZone Gym, Nerul", rating: 4, text: "The campaign automation helped us retain members. Automated renewal reminders and class schedules on WhatsApp. Very responsive support team!", time: "2 months ago" },
+              { name: "Kavita Desai", role: "FitZone Gym", rating: 4, text: "The campaign automation helped us retain members. Automated renewal reminders and class schedules on WhatsApp. Very responsive support team!", time: "2 months ago" },
               { name: "Vikram Singh", role: "Singh Properties", rating: 5, text: "Lead response time went from hours to seconds with their booking automation. Every property enquiry gets an instant WhatsApp reply. Game changer!", time: "6 weeks ago" },
             ].map((r, i) => (
               <div key={i} style={{ background: "#f8faf9", border: "1px solid #e8efe8", borderRadius: 12, padding: "18px 16px", transition: "box-shadow 0.2s" }} onMouseOver={e => e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)"} onMouseOut={e => e.currentTarget.style.boxShadow = "none"}>
