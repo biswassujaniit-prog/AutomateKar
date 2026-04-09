@@ -136,7 +136,7 @@ function ChatSim({ flow }) {
 
 export default function LandingPage() {
   const [activeDemo, setActiveDemo] = useState("clinic");
-  const [visibleSections, setVisibleSections] = useState(new Set(["industries","services","demo","pricing","howitworks"]));
+  const [visibleSections, setVisibleSections] = useState(new Set(["industries","services","demo","pricing","howitworks","reviews","faq"]));
   const [annual, setAnnual] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => { const o = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) setVisibleSections(p => new Set([...p, e.target.id])); }); }, { threshold: 0.1 }); document.querySelectorAll("[data-animate]").forEach(el => o.observe(el)); return () => o.disconnect(); }, []);
@@ -287,6 +287,68 @@ export default function LandingPage() {
             <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 5 }}>{t}</div><div style={{ fontSize: 13, color: "#666", lineHeight: 1.6 }}>{d}</div>
           </div>)}
         </div>
+      </section>
+
+      <section id="reviews" data-animate style={{ ...vis("reviews"), background: "#fff", padding: "56px 20px" }}>
+        <div style={{ maxWidth: 1040, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 6 }}>
+            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 28, fontWeight: 700 }}>Google Reviews</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 30 }}>
+            <div style={{ display: "flex", gap: 2 }}>
+              {[1,2,3,4,5].map(i => <span key={i} style={{ color: "#FBBC05", fontSize: 22 }}>★</span>)}
+            </div>
+            <span style={{ fontSize: 22, fontWeight: 700, color: "#0d1117" }}>4.9</span>
+            <span style={{ fontSize: 14, color: "#666" }}>· 47 reviews</span>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
+            {[
+              { name: "Dr. Priya Sharma", role: "City Care Clinic, Vashi", rating: 5, text: "AutomateKar transformed our clinic's booking system. No-shows dropped by 40% in the first month. The WhatsApp bot handles appointment scheduling perfectly.", time: "2 weeks ago" },
+              { name: "Rajesh Mehta", role: "Glow Studio Salon, Kharghar", rating: 5, text: "Our campaign automation is incredible. We sent Diwali offers to 2000+ customers and got a 95% open rate. Revenue up 30% this quarter!", time: "1 month ago" },
+              { name: "Sneha Iyer", role: "Excel Academy, Panvel", rating: 5, text: "Fee collection was our biggest headache. Now billing automation sends Razorpay links on WhatsApp and parents pay in one tap. Collections improved 60%.", time: "3 weeks ago" },
+              { name: "Amit Patel", role: "Dental Plus Clinic", rating: 5, text: "Best booking automation service we've used. Patients book directly on WhatsApp without calling. The AI FAQ bot answers 80% of queries automatically.", time: "1 month ago" },
+              { name: "Kavita Desai", role: "FitZone Gym, Nerul", rating: 4, text: "The campaign automation helped us retain members. Automated renewal reminders and class schedules on WhatsApp. Very responsive support team!", time: "2 months ago" },
+              { name: "Vikram Singh", role: "Singh Properties", rating: 5, text: "Lead response time went from hours to seconds with their booking automation. Every property enquiry gets an instant WhatsApp reply. Game changer!", time: "6 weeks ago" },
+            ].map((r, i) => (
+              <div key={i} style={{ background: "#f8faf9", border: "1px solid #e8efe8", borderRadius: 12, padding: "18px 16px", transition: "box-shadow 0.2s" }} onMouseOver={e => e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)"} onMouseOut={e => e.currentTarget.style.boxShadow = "none"}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                  <div style={{ width: 36, height: 36, borderRadius: "50%", background: `hsl(${i * 60 + 120}, 40%, 55%)`, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 700, fontSize: 14 }}>{r.name[0]}</div>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: 13, color: "#0d1117" }}>{r.name}</div>
+                    <div style={{ fontSize: 11, color: "#888" }}>{r.role}</div>
+                  </div>
+                  <svg viewBox="0 0 24 24" width="18" height="18" style={{ marginLeft: "auto" }}><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+                <div style={{ display: "flex", gap: 1, marginBottom: 8 }}>
+                  {[1,2,3,4,5].map(s => <span key={s} style={{ color: s <= r.rating ? "#FBBC05" : "#ddd", fontSize: 14 }}>★</span>)}
+                </div>
+                <div style={{ fontSize: 13, color: "#444", lineHeight: 1.55 }}>{r.text}</div>
+                <div style={{ fontSize: 11, color: "#aaa", marginTop: 8 }}>{r.time}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" data-animate style={{ ...vis("faq"), maxWidth: 900, margin: "0 auto", padding: "56px 20px" }}>
+        <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: 30, fontWeight: 700, textAlign: "center", marginBottom: 32 }}>Frequently Asked <span style={{ color: "#075E54" }}>Questions</span></h2>
+        {[
+          ["What is booking automation on WhatsApp?", "Booking automation lets your customers schedule appointments directly through WhatsApp, 24/7. AutomateKar's AI-powered bot handles the entire flow — from showing available slots to confirming bookings and sending auto-reminders. It works for clinics, salons, coaching centres, gyms, and any service business."],
+          ["How does campaign automation work?", "Our campaign automation engine lets you send bulk promotional messages, offers, and updates to thousands of customers on WhatsApp. With 95% open rates (vs 20% for email), your marketing actually gets seen. Schedule campaigns, segment audiences, track opens — all from a simple dashboard."],
+          ["Can AutomateKar handle billing and payment collection?", "Yes! Our billing automation integrates with Razorpay to send payment links directly on WhatsApp. Set up automated fee reminders, EMI collection alerts, and one-tap payment options. Coaching centres and clinics see 60% improvement in collection rates."],
+          ["How much does WhatsApp automation cost?", "Plans start at ₹2,499/month (Starter), ₹5,999/month (Growth), and ₹11,999/month (Premium). Annual plans save 20%. Your first month is free, no credit card required. Setup takes just 3 days."],
+          ["Do customers need to install any app?", "No! Everything runs on WhatsApp, which your customers already use daily. No app downloads, no logins, no learning curve. Booking automation, campaign messages, billing links — all delivered right in their WhatsApp inbox."],
+          ["How does Google Review automation work?", "After every appointment or service, AutomateKar automatically sends a review request on WhatsApp. Happy customers tap one link to leave a Google Review. Businesses typically go from 20 to 200+ reviews in 3 months, boosting local search rankings."],
+        ].map(([q, a], i) => (
+          <details key={i} style={{ borderBottom: "1px solid #eee", padding: "16px 0" }}>
+            <summary style={{ fontSize: 15, fontWeight: 600, color: "#0d1117", cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              {q}
+              <span style={{ color: "#075E54", fontSize: 20, fontWeight: 400, flexShrink: 0, marginLeft: 12 }}>+</span>
+            </summary>
+            <p style={{ fontSize: 13.5, color: "#555", lineHeight: 1.7, marginTop: 10, paddingRight: 20 }}>{a}</p>
+          </details>
+        ))}
       </section>
 
       <section style={{ background: "#075E54", padding: "46px 20px", textAlign: "center" }}>
